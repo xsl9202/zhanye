@@ -1,0 +1,11 @@
+<!--pages/detail/detail.wxml-->
+<view class='img-box'>
+ <image src="{{imgurl}}" data-src="{{imgurl}}" bindtap="saveImage"></image>
+</view>
+<view class='shar'>
+<view>点击图片，长按保存</view>
+<view>点击右上角按钮分享给好友</view>
+</view>
+<view class='adv'>
+<image src='/images/adv.png'></image>
+</view>

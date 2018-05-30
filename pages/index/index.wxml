@@ -1,0 +1,49 @@
+<!--index.wxml-->
+ <!-- <view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <text>{{userInfo.gender}}</text>
+    </block>
+  </view>
+</view>  -->
+
+ <!-- 搜索框 -->
+  <view class="section">
+    <view>
+      <input placeholder="请输入关键字" bindinput='getvalue' bindconfirm="search" confirm-type='search' value='{{keywords}}' />
+      <icon bindtap="search" type="search" size="20" />
+    </view>
+  </view>
+<view class='container'>
+  <!-- 分类 -->
+  <view class='list-box'>
+    <view class='list' wx:for="{{categoryList}}" wx:for-item="list" bindtap="getList" id="{{list.category_id}}" date-categoryid="{{list.category_id}}">
+      <image src='{{list.category_image}}'></image>
+      <text>{{list.category_name}}</text>
+    </view>
+    <!-- <view class='list'>
+      <image src='/images/icon2.png'></image>
+      <text>最新</text>
+    </view>
+    <view class='list'>
+      <image src='/images/icon8.png'></image>
+      <text>明星</text>
+    </view> -->
+  </view>
+  <view class='title'>展业趣图</view>
+  <view class='img-box'>
+    <view class='image-list' wx:for="{{imglist}}" wx:for-item="list" date-imglist_id="{{list.id}}">
+      <navigator url="/pages/detail/detail?listId={{list.id}}">
+        <image  src='{{list.url}}'></image>
+      </navigator>
+    </view>
+    <!-- <view class='image-list'>
+      <navigator url="/pages/detail/detail?listId=2">
+        <image src='/images/qutu1.png'></image>
+      </navigator>
+    </view> -->
+  </view>
+</view>

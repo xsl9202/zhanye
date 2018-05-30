@@ -1,0 +1,103 @@
+/**index.wxss**/
+
+.container {
+  width: 678rpx;
+  margin: 0 auto;
+}
+
+.section {
+  position: fixed;
+  top:0;
+  background-color: #fff;
+  padding-top: 54rpx;
+  width: 100%;
+}
+
+.section view {
+  border: 1px solid #ddd;
+  box-shadow: 0 0 22rpx rgba(240, 240, 240, 0.6);
+  border-radius: 10rpx;
+  width: 90%;
+  margin: 0 auto;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+.section input {
+  display: inline-block;
+  width: 580rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 28rpx;
+  color: #b9b9b9;
+  padding-left:32rpx;
+ box-sizing: border-box;
+}
+
+.section icon {
+  margin-top: 20rpx;
+  float: right;
+  margin-right: 32rpx;
+}
+
+.list-box {
+  margin-top: 200rpx;
+}
+
+.list-box, img-box {
+  width: 100%;
+}
+
+.list {
+  width: 25%;
+  display: inline-block;
+  text-align: center;
+  margin-bottom: 42rpx;
+}
+
+.image-list {
+  width: 214rpx;
+  display: inline-block;
+  text-align: center;
+  margin: 24rpx 18rpx 24rpx 0;
+  box-shadow: 0 0 20rpx rgba(240, 240, 240, 0.6);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.image-list:nth-of-type(3n) {
+  margin-right: 0;
+}
+
+.image-list image {
+  width: 214rpx;
+  height: 312rpx;
+  display: block;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+
+.list image {
+  width: 94rpx;
+  height: 94rpx;
+  margin: 0 auto;
+  display: block;
+}
+
+.list text {
+  width: 100%;
+  margin-top: 20rpx;
+  font-size: 24rpx;
+  display: block;
+  color: #909090;
+}
+
+.title {
+  border-left: 6rpx solid #27a7fe;
+  text-align: left;
+  display: block;
+  width: 100%;
+  text-indent: 6px;
+  font-size: 28rpx;
+  color: #404040;
+  font-weight: bold;
+}

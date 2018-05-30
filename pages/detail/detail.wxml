@@ -1,0 +1,17 @@
+<!--pages/detail/detail.wxml-->
+<view class='img-box'>
+ <image src='{{list.url}}'></image>
+</view>
+<!-- 输入框 -->
+<view class='wrap'>
+  <view class='name'>
+   <label>姓名</label><input bindinput="InputName" type='text'></input>
+  </view>
+  <view class='tel'>
+   <label>手机</label><input bindinput="InputTel" type='number' maxlength="11"></input>
+  </view>
+  <button bindtap="check" class="btn-charge">一键生成 </button>
+</view>
+<view class='adv'>
+<image src='/images/adv.png'></image>
+</view>
