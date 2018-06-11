@@ -11,33 +11,31 @@
 </view>  -->
 
  <!-- 搜索框 -->
-  <view class="section">
+  <!-- <view class="section">
     <view>
       <input placeholder="请输入关键字" bindinput='getvalue' bindconfirm="search" confirm-type='search' value='{{keywords}}' />
       <icon bindtap="search" type="search" size="20" />
     </view>
-  </view>
-<view class='container'>
-  <!-- 分类 -->
+  </view> -->
   <view class='list-box'>
-    <view class='list' wx:for="{{categoryList}}" wx:for-item="list" bindtap="getList" id="{{list.category_id}}" date-categoryid="{{list.category_id}}">
+    <view class='list' wx:key="{{index}}" wx:for="{{categoryList}}" wx:for-index="index" wx:for-item="list" bindtap="getList" id="{{list.category_id}}">
       <image src='{{list.category_image}}'></image>
-      <text>{{list.category_name}}</text>
+      <text class='{{list.active}}'>{{list.category_name}}</text>
     </view>
     <!-- <view class='list'>
-      <image src='/images/icon2.png'></image>
-      <text>最新</text>
-    </view>
-    <view class='list'>
       <image src='/images/icon8.png'></image>
       <text>明星</text>
     </view> -->
   </view>
-  <view class='title'>展业趣图</view>
+<view class='container'>
+  <!-- 分类 -->
+  <view class='title'>{{category_name}}趣图</view>
   <view class='img-box'>
-    <view class='image-list' wx:for="{{imglist}}" wx:for-item="list" date-imglist_id="{{list.id}}">
+    <view class='image-list' wx:for="{{imglist}}"  wx:key="{{index}}" wx:for-item="list" date-imglist_id="{{list.id}}">
       <navigator url="/pages/detail/detail?listId={{list.id}}">
         <image  src='{{list.url}}'></image>
+        <view class='num'>下载量：{{list.downloadNum}}</view>
+         <view class='num'>分享量：{{list.shareNum}}</view>
       </navigator>
     </view>
     <!-- <view class='image-list'>

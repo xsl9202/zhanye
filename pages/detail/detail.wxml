@@ -1,6 +1,8 @@
 <!--pages/detail/detail.wxml-->
 <view class='img-box'>
  <image src='{{list.url}}'></image>
+ <text class='InputName' style='top:{{nameInfo.y}}rpx;left:{{nameInfo.x}}rpx;font-size:{{nameInfo.font_size}}rpx;color:#{{nameInfo.font_color}};font-family:{{nameInfo.font}};'>{{name}}</text>
+ <text class='InputTel' style='top:{{phoneInfo.y}}rpx;left:{{phoneInfo.x}}rpx;font-size:{{phoneInfo.font_size}}rpx;color:#{{phoneInfo.font_color}};font-family:{{phoneInfo.font}};'>{{tel}}</text>
 </view>
 <!-- 输入框 -->
 <view class='wrap'>
@@ -12,6 +14,7 @@
   </view>
   <button bindtap="check" class="btn-charge">一键生成 </button>
 </view>
-<view class='adv'>
+<!-- 广告 -->
+<!-- <view class='adv'>
 <image src='/images/adv.png'></image>
-</view>
+</view> -->

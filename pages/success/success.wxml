@@ -5,7 +5,9 @@
 <view class='shar'>
 <view>点击图片，长按保存</view>
 <view>点击右上角按钮分享给好友</view>
+<view>识别图中二维码，保存名片至通讯录</view>
 </view>
-<view class='adv'>
+<!-- 广告 -->
+<!-- <view class='adv'>
 <image src='/images/adv.png'></image>
-</view>
+</view> -->

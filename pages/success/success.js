@@ -5,8 +5,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    name: "zhagnsna",
-    tel: "1234567899",
     imgurl:""
   },
 
@@ -21,7 +19,7 @@ Page({
       
     });
   },
-// 保存图片
+// 预览图片保存图片
   saveImage:function(e){
     var that=this;
     var current = e.target.dataset.src;
@@ -76,6 +74,12 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    var that = this;
+    var infor = that.data.imgurl;
+    console.log(infor);
+      return {
+        title: '展业神器',
+        path: '/pages/success/success?card_url='+infor,
+}
   }
 })

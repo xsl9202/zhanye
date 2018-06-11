@@ -1,16 +1,30 @@
 /* pages/detail/detail.wxss */
 
 .img-box {
-  width: 344rpx;
-  height: 584rpx;
+  width:607rpx;
+  height:1032rpx;
   margin: 42rpx auto;
   border-radius: 20rpx;
   position: relative;
 }
-
+/* xsl 18.6.7 */
+.InputName,.InputTel{
+  position: absolute;
+  display: inline-block;
+  width: 200rpx;
+  left: 138rpx;
+  color: #fff;
+  font-size: 24rpx;
+}
+.InputName{
+  bottom: 60rpx;
+}
+.InputTel{
+  bottom: 10rpx;
+}
 .img-box image {
-  width: 344rpx;
-  height: 585rpx;
+  width:607rpx;
+  height:1032rpx;
   border-radius: 20rpx;
   box-sizing: border-box;
   box-shadow: 0 0 22rpx rgba(240, 240, 240, 0.6);

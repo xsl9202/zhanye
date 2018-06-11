@@ -8,7 +8,11 @@ Page({
     name: "",
     tel: "",
     id: 0,
-    list: {}
+    list: {},
+    nameInfo:{},
+    phoneInfo: {},
+    nameButtom:"180rpx",  
+    nameLeft:"180rpx" 
   },
   // 存储输入的姓名
   InputName: function (res) {
@@ -106,6 +110,19 @@ Page({
           //console.log(JSON.parse(app.decrypt(res.data.data)));  
           list = JSON.parse(app.decrypt(res.data.data));
           console.log(list.list);
+          var params = JSON.parse(app.decrypt(res.data.data)).list.params;
+          //姓名坐标及文字样式
+          var nameInfo = params.name;
+          that.setData({
+            nameInfo: nameInfo
+          });
+           //手机号坐标及文字样式
+          var phoneInfo = params.phone;
+          that.setData({
+            phoneInfo: phoneInfo
+          });
+          console.log(nameInfo);
+          //console.log(phoneInfo);
           that.setData({
             list: list.list
           });

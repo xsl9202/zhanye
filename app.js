@@ -2,40 +2,26 @@
 var fun_aes = require('./utils/aes.js')
 var aes = require('./utils/aes.min.js'); //引入aes类包
 //十六位十六进制数作为秘钥
-//var key = fun_aes.CryptoJS.enc.Utf8.parse("zxcvbnmasdfghjkl");
-//十六位十六进制数作为秘钥偏移量
-//var iv = fun_aes.CryptoJS.enc.Utf8.parse('mnbvcxzlkjhgfdae');  
-//十六位十六进制数作为秘钥
 var aeskey = aes.CryptoJS.enc.Utf8.parse("zxcvbnmasdfghjkl");
 //十六位十六进制数作为秘钥偏移量
 var aesiv = aes.CryptoJS.enc.Utf8.parse('mnbvcxzlkjhgfdae');
 App({
   onLaunch: function () {
     var that = this;
-    var wo = { code: 78, name: '小明' };
-    //aes加密
-    var aes_encode = this.encrypt(JSON.stringify(wo))
-    //aes解密
-    //console.log(aes_encode)
-    //console.log(JSON.parse(this.decrypt(aes_encode)))
+    console.log("h" + wx.getStorageSync('user_id'))
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+    //wx.setStorageSync('logs', logs)
+    var test = false;
+    that.globalData.apiUrl = test ? that.globalData.apiUrl : that.globalData.test_apiUrl;
     that.login();
     return false;
   },
-  // getUserInfo: function (e) {
-  //   console.log(e);
-  //   app.globalData.userInfo = e.detail.userInfo
-  //   this.setData({
-  //     userInfo: e.detail.userInfo,
-  //     hasUserInfo: true
-  //   })
-  // },
   globalData: {
     userInfo: null,
-    apiUrl: "https://minitest.jrweid.com/"
+    apiUrl: "https://mini.jrweid.com/",
+    test_apiUrl: "https://minitest.jrweid.com/",
   },
   // 加密
   encrypt: function (data) {
@@ -57,8 +43,9 @@ App({
     var that=this;
     var token = wx.getStorageSync('token');
     var user_id = wx.getStorageSync('user_id');
-    if (token && user_id) {
-      console.log("登录");
+    console.log("lo " + user_id)
+    if (user_id > 0) {
+      console.log("PP" + user_id)
       // 接口参数
       var data = { access_token: token, user_id: user_id };
       wx.request({
@@ -69,10 +56,10 @@ App({
         dataType: 'json',
         success: function (res) {
           if (res.data.code == 200) {
-            console.log(res);
-            //  console.log(JSON.parse(that.decrypt(res.data.data)));
+            var content = JSON.parse(that.decrypt(res.data.data));
+             wx.setStorageSync('user_id', content.user_id);
           } else {
-            console.log((res.data.data));
+          
           };
         },
         fail: function (res) { },
@@ -85,14 +72,12 @@ App({
   /**注册 */
   register:function(){
     var that=this;
-    console.log("注册");
     wx.login({
       success: res => {
         console.log("code： " + res.code);
        // wx.setStorageSync('code', res.code);
         // 接口参数
         var data = { code: res.code };
-        console.log(data);
         wx.request({
           url: that.globalData.apiUrl + "user/register",
           data: { content: that.encrypt(JSON.stringify(data)) },//密文
@@ -101,12 +86,10 @@ App({
           dataType: 'json',
           success: function (res) {
             if (res.data.code == 200) {
-              console.log(res);
-              console.log(JSON.parse(that.decrypt(res.data.data)));
               var user = JSON.parse(that.decrypt(res.data.data));
-              console.log(user);
               wx.setStorageSync('token', user.token);
-               wx.setStorageSync('user_id', user.user_id);
+              console.log("re" + user.user_id);
+              wx.setStorageSync('user_id', user.user_id);
             } else {
               console.log((res.data.data));
             };

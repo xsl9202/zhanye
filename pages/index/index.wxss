@@ -5,7 +5,7 @@
   margin: 0 auto;
 }
 
-.section {
+/* .section {
   position: fixed;
   top:0;
   background-color: #fff;
@@ -37,16 +37,23 @@
   margin-top: 20rpx;
   float: right;
   margin-right: 32rpx;
-}
+} */
 
 .list-box {
-  margin-top: 200rpx;
+  /* margin-top: 200rpx; */
 }
 
 .list-box, img-box {
   width: 100%;
 }
-
+.num{
+  font-size: 22rpx;
+  text-align: left;
+  text-indent: 20rpx;
+  color: gray;
+  padding: 8rpx 0;
+ 
+}
 .list {
   width: 25%;
   display: inline-block;
@@ -90,7 +97,10 @@
   display: block;
   color: #909090;
 }
-
+.list text.active{
+  font-weight: bold;
+  color: #000;
+}
 .title {
   border-left: 6rpx solid #27a7fe;
   text-align: left;
